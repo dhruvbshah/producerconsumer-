@@ -1,0 +1,101 @@
+create the needed variables N P C X
+
+create buffer is an array
+
+Main given arguments
+Start time
+
+Assign variables N, P, C, X with args[]
+consumer = (p*x) / c;
+
+extra = (p*x) %c;
+
+add n to array b
+add (p * x) to p
+add (p * x) to c
+
+sem_open("/full", O_CREAT, 0644, 0);
+    sem_open("/empty", O_CREAT, 0644, N);
+
+print out all the values n p c x
+print out current time
+
+for loop till i < p
+pThread create producer
+
+for loop till i < c
+pThread create consumer
+
+for loop till i < p
+pThread join
+
+for loop till i < c
+pThread Join
+
+Print Array consumers | producers
+
+destroy mutex
+
+sem_close
+sem_unlink
+
+Stop time
+
+display total Time
+
+
+Enqueue is inserting items
+	lock mutex
+	
+	if bufferPoint is less than n
+
+		increment shared val
+		insert value into buffer array
+		increment bufferPoint
+
+		add value to producer array as producerVal
+
+		increment producerVal
+
+		print producers
+
+	else
+
+		subtract 1 from p
+	unlock mutex
+
+
+Dequeue is removing items
+	lock mutex
+	
+	if bufferPoint > 0
+		value = buffer[out]
+		decrement bufferPoint
+		add val into consumer array
+		increment consumer array
+		print consumers
+	else
+		subtrct 1 from i
+	
+	unlock mutex
+
+
+Producer given arguments
+	arg saved ad producerid
+	
+	While count < X
+		if enqueue(producerID == 0
+			increment count
+	
+	pThread exit with null
+
+Consumer given arguments
+	arg saved as consumerID
+	
+	if extra consumer > 0
+		x = consumer + extra
+	
+	while count < x
+		if Dequeue(ConsumerID) is 0
+		increment count
+exit Pthread
